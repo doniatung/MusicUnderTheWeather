@@ -1,0 +1,3 @@
+Project 1 Development Log:
+
+## Format all Devlogs updates like this: firstL -- TIMESTAMP\n + the update ##
