@@ -6,3 +6,8 @@ giorgioV -- 11/14 13:55
   -Made the devlog
   -Made the original files
   -We out here right now
+
+giorgioV -- 11/15 14:00
+  -Making progress with the iframe
+  -Basis of HTML homepage
+  -5% done, time to start pushing!
