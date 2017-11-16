@@ -1,0 +1,2 @@
+#get stuff from database and update database
+import sqlite3 as sq
