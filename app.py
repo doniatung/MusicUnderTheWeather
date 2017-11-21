@@ -2,17 +2,16 @@ from flask import Flask, render_template, redirect, url_for
 import urllib2, json
 
 app = Flask(__name__)
+app.secret_key = os.urandom(32)
 
 #main routes
 
+#TODO: add session and authorizaion stuff
 @app.route('/')
 def root():
+    if key in session:
+        return redirect(url_for('home'))
     return render_template('POTENTIALLOGIN.html')
-
-#TODO: add session stuff and authorization
-@app.route('/login')
-def login():
-    return render_template('login.html')
 
 @app.route('/register')
 def register():
