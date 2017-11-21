@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    return render_template('base.html')
+    return render_template('POTENTIALLOGIN.html')
 
 #TODO: add session stuff and authorization
 @app.route('/login')
@@ -16,7 +16,7 @@ def login():
 
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    return render_template('PotentialRegister.html')
 
 @app.route('/home')
 def home():
