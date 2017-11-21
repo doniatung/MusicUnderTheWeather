@@ -11,3 +11,8 @@ giorgioV -- 11/15 14:00
   -Making progress with the iframe
   -Basis of HTML homepage
   -5% done, time to start pushing!
+
+giorgioV -- 11/20 21:00
+  -Made the Login
+  -Made the Register
+  -Experimenting with bootstrap 
