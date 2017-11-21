@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body style="background-color:lavender;">
+
+<div class="container">
+  <div class="jumbotron">
+    <h1><center>Register</center></h1>
+    <p><center>let the music guide you</center></p>
+  </div>
+</div>
+<center>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    Hello, please enter a username and password to register. <br><br>
+  	<form method = "POST" action ="/register">
+            Username:
+            <input type="text" name="newUsername" required> <br><br>
+            Password:
+            <input type = "password" name = "newPassword" required>  <br><br>
+            Confirm password:
+            <input type="password" name = "repeatPassword" required> <br> <br>
+            <input type="submit" value="Register">
+  	</form>
+  	<form method="get" action="/">
+  	  <input type="submit" value="Back"><br><br>
+        </form>
+
+  </div>
+  <div class="col-sm-4"></div>
+</div> </center>
+</body>
+</html>
