@@ -1,0 +1,13 @@
+<=30:
+Dean Martin - Let it Snow! Let It Snow! Let It Snow! / https://www.youtube.com/watch?v=o2uvtl-1V70
+Idina Menzel & Michael Bublé - Baby It's Cold Outside / https://www.youtube.com/watch?v=6bbuBubZ1yE
+Mariah Carey - All I Want For Christmas Is You / https://www.youtube.com/watch?v=yXQViqx6GMY
+Chris Brown - This Christmas / https://www.youtube.com/watch?v=b9XNyeeJZ2k
+Foreigner - Cold As Ice (Official Lyric Video) / https://www.youtube.com/watch?v=mjwV5w0IrcA
+
+30<x<=50
+
+Kanye West - Only One ft. Paul McCartney / https://www.youtube.com/watch?v=WibQR0tQ0P8
+K. - Cigarettes After Sex / https://www.youtube.com/watch?v=L4sbDxR22z4
+Chet Baker feat. Herbie Hancock - Fair Weather / https://www.youtube.com/watch?v=iuS1nGPbtq4
+Kanye West - Bound 2 (Explicit) / https://www.youtube.com/watch?v=BBAtAM7vtgc
