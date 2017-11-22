@@ -4,6 +4,8 @@ import urllib2, json
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
+key = 'user'
+
 #main routes
 
 #TODO: add session and authorizaion stuff
@@ -19,7 +21,19 @@ def register():
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    #if the key is already in the session
+    if key in session:
+        return render_template('home.html')
+
+    #if just logged in
+    '''elif database.authorize(request.form('username'), request.form('password')):
+        session[key] = request.form('username')
+        return render_template('home.html')''' #not yet usable
+
+    #if not logged in
+    else:
+        #TODO: add flash message
+        return redirect(url_for('root'))
 
 @app.route('/search_result')
 def search():
