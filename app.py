@@ -1,10 +1,11 @@
-from flask import Flask, render_template, redirect, url_for
+emacs from flask import Flask, render_template, redirect, url_for
 import urllib2, json
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 key = 'user'
+db_name = 'music_under_the_weather.db'
 
 #main routes
 
@@ -13,11 +14,11 @@ key = 'user'
 def root():
     if key in session:
         return redirect(url_for('home'))
-    return render_template('POTENTIALLOGIN.html')
+    return render_template('login.html')
 
 @app.route('/register')
 def register():
-    return render_template('PotentialRegister.html')
+    return render_template('register.html')
 
 @app.route('/home')
 def home():
@@ -26,9 +27,9 @@ def home():
         return render_template('home.html')
 
     #if just logged in
-    '''elif database.authorize(request.form('username'), request.form('password')):
+    elif database.authorize(request.form('username'), request.form('password')):
         session[key] = request.form('username')
-        return render_template('home.html')''' #not yet usable
+        return render_template('home.html') #not yet usable
 
     #if not logged in
     else:
@@ -44,6 +45,19 @@ def search():
 @app.route('/logout')
 def logout():
     return redirect(url_for('root'))
+
+@app.route('/check_new_account')
+def new_account():
+    username = request.form('username')
+    password = request.form('password')
+    
+    if database.check_account_not_exists(username, db_name):
+        #flash message
+        return redirect(url_for('register'))
+    
+    database.add_account(username, password, db_name)
+    #flash message
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.debug = True
