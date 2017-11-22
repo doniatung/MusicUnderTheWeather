@@ -25,3 +25,7 @@ giorgioV -- 11/20 21:00
   
 doniaT -- 11/21 20:30
   -updated design doc with feedback from review session
+  
+doniaT -- 11/22 14:00
+  -updated readme with the assigned information
+  -added songs to the list
