@@ -12,9 +12,27 @@ db.close()
 
 #functions
 
+#initial creation
+def create_table(table_name):
+    db = sqlite3.connect(<db name>)
+    c = db.cursor()
+
+    cmd = 'CREATE TABLE ' + table_name '(' + cols + ')'
+    c.execute(cmd)
+    
+    db.commit()
+    db.close()
+
 #for login
-def authorize():
-    pass
+def authorize(username, password):
+    db = sqlite3.connect(<db name>)
+    c = db.cursor()
+
+    cmd = ''
+    c.execute(cmd)
+    
+    db.commit()
+    db.close()
 
 #for register
 def check_account_exists():

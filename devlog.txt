@@ -11,8 +11,17 @@ giorgioV -- 11/15 14:00
   -Making progress with the iframe
   -Basis of HTML homepage
   -5% done, time to start pushing!
+  
+doniaT -- 11/16 14:00
+  -Pushed super basic login and layout pages
+  
+doniaT -- 11/17 6:00
+  -uploaded design document
 
 giorgioV -- 11/20 21:00
-  -Made the Login
+  -Finished the Login
   -Made the Register
   -Experimenting with bootstrap 
+  
+doniaT -- 11/21 20:30
+  -updated design doc with feedback from review session
