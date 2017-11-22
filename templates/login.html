@@ -1,37 +1,41 @@
-{% extends "layout.html" %}
-
-{% block title %} Log In  {% endblock %}
-
-{% block body %}
-
-<div style="font-weight:bold" align = "center">
-  {% set messages = get_flashed_messages() %}
-  {% for message in messages %}
-  {{message}}
-  {% endfor %}
-  <br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Music Under The Weather</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body style="background-color:lavender;">
+<div class="container">
+  <div class="jumbotron" style="background-color: beige">
+    <h1><center>Music Under The Weather</center></h1>
+  <p class="text-muted text-center">The app where you don't choose the music, The music chooses you</p>
+  </div>
 </div>
+<center>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <h1>Login</h1> <br>
+    <form method = "post" action ="/login">
 
-<div align = "left">
-  <form method="POST" action = "/">
-    <input type = "submit" value = "Home">
-  </form>
-</div>
+  	Enter your username:<br>
+  	<input type="text" name="username" required><br><br>
 
-<h1 align = "center"> Log In: </h1>
+  	Enter your password: <br>
+  	<input type="password" name="password" required><br><br>
 
-<div align = "center">
-  <form method = "POST" action = "/authorize">
-    Username:
-    <br>
-    <input type = "text" name = "username" required>
-    <br>
-    Password:
-    <br>
-    <input type = "password" name = "password" required>
-    <br>
-    <input type = "submit" value = "Submit"> 
-  </form>
-</div>
+  	<input type="submit" value="submit"> <br> <br>
+        </form>
 
-{% endblock %}
+    <form method = "GET" action = "/register">
+    Don't have an account?
+    <input type="submit" value = "Register">
+    </form>
+
+  </div>
+  <div class="col-sm-4"></div>
+</div> </center>
+</body>
+</html>
