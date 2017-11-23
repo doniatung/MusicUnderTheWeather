@@ -39,3 +39,8 @@ mashaZ -- 11/22 14:05
 mashaZ -- 11/23 12:21
   -worked on making login stuff work
   -fixed minor error in html file
+
+giorgioV -- 11/23 13:37
+  -finished home.html
+  -began work on search page
+  
