@@ -1,5 +1,7 @@
-emacs from flask import Flask, render_template, redirect, url_for
-import urllib2, json
+from flask import Flask, render_template, redirect, url_for, request, session, flash
+import os
+from utils import database
+#import urllib2, json
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -20,14 +22,16 @@ def root():
 def register():
     return render_template('register.html')
 
-@app.route('/home')
+@app.route('/home', methods=['POST', 'GET'])
 def home():
     #if the key is already in the session
     if key in session:
         return render_template('home.html')
 
     #if just logged in
-    elif database.authorize(request.form('username'), request.form('password')):
+    username = request.form('username')
+    password = request.form('password')
+    if database.authorize(username, password, db_name):
         session[key] = request.form('username')
         return render_template('home.html') #not yet usable
 

@@ -29,3 +29,13 @@ doniaT -- 11/21 20:30
 doniaT -- 11/22 14:00
   -updated readme with the assigned information
   -added songs to the list
+
+mashaZ -- 11/22 14:05
+  -created database
+  -wrote authorize fucnction in database.py
+  -wrote route methods for login stuff
+  -everything still untested
+
+mashaZ -- 11/23 12:21
+  -worked on making login stuff work
+  -fixed minor error in html file
