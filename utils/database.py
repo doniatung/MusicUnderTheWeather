@@ -31,12 +31,13 @@ def authorize(username, password, db_name):
     c.execute(cmd)
 
     passes = c.fetchall()
+    print(passes)
     if len(list(passes)) == 0:
         db.commit()
         db.close()
         return False
     for pw in passes:
-        if pw == password:
+        if pw[0] == password:
             db.commit()
             db.close()
             return True
@@ -66,7 +67,7 @@ def add_account(username, password, db_name):
     db = sqlite3.connect(db_name)
     c = db.cursor()
 
-    cmd = 'INSERT_INTO user_info VALUES("' + username + '","' + password + '")'
+    cmd = 'INSERT INTO user_info VALUES("' + username + '","' + password + '")'
     c.execute(cmd)
     
     db.commit()
@@ -81,6 +82,7 @@ if __name__ == '__main__':
     db_name = 'music_under_the_weather.db'
     #create_table('user_info', 'username CHAR PRIMARY KEY, password CHAR', db_name)
 
+    #print (check_account_not_exists('me', db_name))
+    #add_account('me', 'pass', db_name)
     print (check_account_not_exists('me', db_name))
-    add_account('me', 'pass', db_name)
-    print (check_account_not_exists('me', db_name))
+    print (authorize('me', 'pass', db_name))

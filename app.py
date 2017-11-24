@@ -29,11 +29,11 @@ def home():
         return render_template('home.html')
 
     #if just logged in
-    username = request.form('username')
-    password = request.form('password')
+    username = request.form['username']
+    password = request.form['password']
     if database.authorize(username, password, db_name):
-        session[key] = request.form('username')
-        return render_template('home.html') #not yet usable
+        session[key] = username
+        return render_template('home.html') 
 
     #if not logged in
     else:
@@ -48,20 +48,28 @@ def search():
 
 @app.route('/logout')
 def logout():
+    if key in session:
+        session.pop(key)
+        flash('You logged out!')
     return redirect(url_for('root'))
 
-@app.route('/check_new_account')
-def new_account():
-    username = request.form('username')
-    password = request.form('password')
+@app.route('/check_new_account', methods=['POST'])
+def check_new_account():
+    username = request.form['newUsername']
+    password = request.form['newPassword']
+    confirmed_pass = request.form['repeatPassword']
+
+    if not (password == confirmed_pass):
+        flash('Passwords do not match, try again.')
+        return redirect(url_for('register'))
     
-    if database.check_account_not_exists(username, db_name):
-        #flash message
+    if not database.check_account_not_exists(username, db_name):
+        flash('Account already exists')
         return redirect(url_for('register'))
     
     database.add_account(username, password, db_name)
-    #flash message
-    return redirect(url_for('login'))
+    flash('You have registed, ' + username + '!')
+    return redirect(url_for('root'))
 
 if __name__ == "__main__":
     app.debug = True

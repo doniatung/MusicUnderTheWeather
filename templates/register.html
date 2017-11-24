@@ -19,7 +19,12 @@
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
     Hello, please enter a username and password to register. <br><br>
-  	<form method = "POST" action ="/register">
+    {% set messages = get_flashed_messages() %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    <br><br>
+  	<form method = "POST" action ="/check_new_account">
             Username: <br>
             <input type="text" name="newUsername" required> <br><br>
             Password: <br>
