@@ -44,3 +44,5 @@ giorgioV -- 11/23 13:37
   -finished home.html
   -began work on search page
   
+mashaZ -- 11/25 9:41
+  -wrote functions to access and update user history in database
