@@ -46,3 +46,7 @@ giorgioV -- 11/23 13:37
   
 mashaZ -- 11/25 9:41
   -wrote functions to access and update user history in database
+
+doniaT -- 11/26 13:00
+  -fixed search form for it to receive zipcode data
+  -wrote helper functions to get city and temp from form input
