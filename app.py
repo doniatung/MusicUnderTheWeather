@@ -1,13 +1,37 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
-import os
-from utils import database
-#import urllib2, json
+import os, urllib2, json
+#from utils import database
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 key = 'user'
 db_name = 'music_under_the_weather.db'
+
+def cityFinder(zipcode):
+    url = "http://api.wunderground.com/api/31c0e27929b4d46c/geolookup/q/" + zipcode + ".json"
+    u = urllib2.urlopen(url)
+    data = u.read()
+    dic = json.loads(data)
+    locationdic = dic["location"]
+    city = locationdic["city"]
+    return city
+
+def weatherGetter(zipcode):
+    url1 = "http://api.wunderground.com/api/31c0e27929b4d46c/geolookup/q/" + zipcode + ".json"
+    u = urllib2.urlopen(url1)
+    data = u.read()
+    dic = json.loads(data)
+    locationdic = dic["location"]
+    addon = locationdic["requesturl"]
+    url2 = "http://api.wunderground.com/api/31c0e27929b4d46c/conditions/q/" + addon + ".json"
+    u2 = urllib2.urlopen(url2)
+    data2 = u2.read()
+    dic2 = json.loads(data2)
+    currentObsDic = dic2["current_observation"]
+    temp = currentObsDic["temp_f"]
+    return temp
 
 #main routes
 
@@ -33,16 +57,22 @@ def home():
     password = request.form['password']
     if database.authorize(username, password, db_name):
         session[key] = username
+        flash("Login Successful")
         return render_template('home.html') 
 
     #if not logged in
     else:
         #TODO: add flash message
+        flash("Login Unsuccessful. Try again.")
         return redirect(url_for('root'))
 
-@app.route('/search_result')
-def search():
-    return render_template('search_result.html')
+@app.route('/search_result', methods = ["GET", "POST"])
+def result():
+    zipp = request.form["zipcode"]
+    city = cityFinder(zipp)
+    temp = weatherGetter(zipp)
+    return render_template("search_result.html", cT = city, temperature = temp)
+
 
 #in between routes (logout, authorize, etc.)
 

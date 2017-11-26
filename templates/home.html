@@ -21,17 +21,16 @@
       </div>
 
       <div class="jumbotron" style="background-color:beige;">
-        <h3 class="display-3" style="text-align:center;">Tell us what city you're from</h3>
+        <h3 class="display-3" style="text-align:center;">Tell us what zip code you're in!</h3>
       </div>
 
     <div class=".container-fluid" style="text-align:center;" >
           <img src="MusicUnderTheWeather.jpg" width="400" height="200">
-          <form method = "POST" action ="/register">
-                 <h4>Input City:</h4> <br>
-                  <input type="text" name="newUsername" required> <br><br>
-                  <form method = "GET" action = "/register">
-                  <input type="submit" value = "Take me away!">
-                  </form>
+          <form method = "POST" action ="/search_result">
+	    <h4>Zip Code:</h4> <br>
+	    <input type="text" name="zipcode" required> <br><br>
+            <input type="submit" value = "Take me away!">
+          </form>
       </div>
       <footer class="footer">
         <a>View Listening History</a> <br>
