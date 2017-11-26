@@ -9,6 +9,13 @@ app.secret_key = os.urandom(32)
 key = 'user'
 db_name = 'music_under_the_weather.db'
 
+
+less30 = ["o2uvtl-1V70", "6bbuBubZ1yE", "yXQViqx6GMY","b9XNyeeJZ2k", "mjwV5w0IrcA"]
+bw3050 = ["WibQR0tQ0P8", "L4sbDxR22z4", "iuS1nGPbtq4", "BBAtAM7vtgc", "J_ub7Etch2U"]
+bw5070 = ["GCdwKhTtNNw", "kTHNpusq654", "LHQqqM5sr7g"]
+bw7090 = ["0","1","2","3","4"]
+over90 = ["HCjNJDNzw8Y", "1","2","3","4"]
+
 def cityFinder(zipcode):
     url = "http://api.wunderground.com/api/31c0e27929b4d46c/geolookup/q/" + zipcode + ".json"
     u = urllib2.urlopen(url)
@@ -32,6 +39,21 @@ def weatherGetter(zipcode):
     currentObsDic = dic2["current_observation"]
     temp = currentObsDic["temp_f"]
     return temp
+
+
+def songGetter(temp):
+    temperature = int(temp)
+    index = random.randint(0,4)
+    if temperature < 30:
+        return less30[index]
+    elif temperature < 50:
+        return bw3050[index]
+    elif temperature < 70:
+        return bw5070[index]
+    elif temperature < 90:
+        return bw7090[index]
+    else:
+        return over90[index]
 
 #main routes
 
@@ -71,8 +93,9 @@ def result():
     zipp = request.form["zipcode"]
     city = cityFinder(zipp)
     temp = weatherGetter(zipp)
-    return render_template("search_result.html", cT = city, temperature = temp)
-
+    songID = songGetter(temp)
+    iD = ["https://www.youtube.com/embed/" + songID]
+    return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = " yo")
 
 #in between routes (logout, authorize, etc.)
 

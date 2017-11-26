@@ -21,16 +21,18 @@
       </div>
       <div class="jumbotron" style="background-color:beige;">
 	<center>
-	  <h3>And you're listening to {{song}}<h3></center>
+	  <h3>And you're listening to {{title}}<h3></center>
       </div>
 
 
       <div class=".container-fluid" style="text-align:center;" >
 
-        <form method="get" action="/home"> <br>
+        <form method="get" action="/"> <br>
           <input type="submit" value="Back"><br><br>
         </form> <br>
-      <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" width="640" height="480">
+	{% for song in playlist %}
+	<iframe src={{song}}  width="640" height="480">
+	{% endfor %}
 
       </div>
 
