@@ -57,8 +57,12 @@ doniaT -- 11/26 14:30
   -iFrames for the video are showing up
   -I've spent so long trying to get the stupid titles and I can't do it
 
-doniaT -- 21:30
+doniaT -- 11/26 21:30
   -updated readme
 
-giorgioV -- 22:30
+giorgioV -- 11/26 22:30
   -Finished all basic templates
+  
+doniaT -- 11/27 14:00
+  -Got the title thing to work! 
+  -added music to the lists
