@@ -56,3 +56,6 @@ doniaT -- 11/26 14:30
   -randomly selects a video from the playlist for the specific weather bracket
   -iFrames for the video are showing up 
   -I've spent so long trying to get the stupid titles and I can't do it 
+  
+doniaT -- 21:30
+  -updated readme
