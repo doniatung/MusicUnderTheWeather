@@ -14,8 +14,8 @@ db_name = 'music_under_the_weather.db'
 less30 = ["o2uvtl-1V70", "6bbuBubZ1yE", "yXQViqx6GMY","b9XNyeeJZ2k", "mjwV5w0IrcA"]
 bw3050 = ["WibQR0tQ0P8", "L4sbDxR22z4", "iuS1nGPbtq4", "BBAtAM7vtgc", "J_ub7Etch2U"]
 bw5070 = ["GCdwKhTtNNw", "kTHNpusq654", "LHQqqM5sr7g"]
-bw7090 = ["0","1","2","3","4"]
-over90 = ["HCjNJDNzw8Y", "1","2","3","4"]
+bw7090 = ["DVkkYlQNmbc","weeI1G46q0o","HL1UzIK-flA"]
+over90 = ["HCjNJDNzw8Y", "bncb3dm8K7g","yd8jh9QYfEs","CTFtOOh47oo"]
 
 def cityFinder(zipcode):
     url = "http://api.wunderground.com/api/31c0e27929b4d46c/geolookup/q/" + zipcode + ".json"
