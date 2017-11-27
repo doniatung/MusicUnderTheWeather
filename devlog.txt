@@ -11,21 +11,21 @@ giorgioV -- 11/15 14:00
   -Making progress with the iframe
   -Basis of HTML homepage
   -5% done, time to start pushing!
-  
+
 doniaT -- 11/16 14:00
   -Pushed super basic login and layout pages
-  
+
 doniaT -- 11/17 6:00
   -uploaded design document
 
 giorgioV -- 11/20 21:00
   -Finished the Login
   -Made the Register
-  -Experimenting with bootstrap 
-  
+  -Experimenting with bootstrap
+
 doniaT -- 11/21 20:30
   -updated design doc with feedback from review session
-  
+
 doniaT -- 11/22 14:00
   -updated readme with the assigned information
   -added songs to the list
@@ -43,7 +43,7 @@ mashaZ -- 11/23 12:21
 giorgioV -- 11/23 13:37
   -finished home.html
   -began work on search page
-  
+
 mashaZ -- 11/25 9:41
   -wrote functions to access and update user history in database
 
@@ -54,8 +54,11 @@ doniaT -- 11/26 13:00
 doniaT -- 11/26 14:30
   -inputted playlists
   -randomly selects a video from the playlist for the specific weather bracket
-  -iFrames for the video are showing up 
-  -I've spent so long trying to get the stupid titles and I can't do it 
-  
+  -iFrames for the video are showing up
+  -I've spent so long trying to get the stupid titles and I can't do it
+
 doniaT -- 21:30
   -updated readme
+
+giorgioV -- 22:30
+  -Finished all basic templates
