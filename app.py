@@ -134,7 +134,7 @@ def check_new_account():
         flash('Passwords do not match, try again.')
         return redirect(url_for('register'))
     
-\    if not database.check_account_not_exists(username, db_name):
+    if not database.check_account_not_exists(username, db_name):
         flash('Account already exists')
         return redirect(url_for('register'))
     
