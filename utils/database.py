@@ -72,18 +72,18 @@ def add_account(username, password, db_name):
     c.execute(cmd)
 
     #create a user history table for this username
-    cmd = 'CREATE TABLE ' + username + '_history(city CHAR, video CHAR)'
+    cmd = 'CREATE TABLE ' + username + '_history(city CHAR, temp CHAR, video CHAR)'
     c.execute(cmd)
     
     db.commit()
     db.close()
 
 #for search_result
-def update_user_history(username, city, new_video, db_name):
+def update_user_history(username, city, temp, new_video, db_name):
     db = sqlite3.connect(db_name)
     c = db.cursor()
 
-    cmd = 'INSERT INTO ' + username + '_history VALUES("' + city + '","' + new_video + '")'
+    cmd = 'INSERT INTO ' + username + '_history VALUES("' + city + '","' + temp + '","' + new_video + '")'
     c.execute(cmd)
     
     db.commit()
@@ -93,7 +93,7 @@ def get_user_history(username, db_name):
     db = sqlite3.connect(db_name)
     c = db.cursor()
 
-    cmd = 'SELECT city, video FROM ' + username + '_history'
+    cmd = 'SELECT city, temp, video FROM ' + username + '_history'
     c.execute(cmd)
 
     history = c.fetchall()
@@ -101,17 +101,18 @@ def get_user_history(username, db_name):
         rand_index = random.randrange(len(history))
 
         city = history[rand_index][0]
-        video = history[rand_index][1]
+        temp = history[rand_index][1]
+        video = history[rand_index][2]
         
         db.commit()
         db.close()
 
-        return city, video
+        return city, temp, video
 
     db.commit()
     db.close()
 
-    return None, None
+    return None, None, None
 
 
 if __name__ == '__main__':

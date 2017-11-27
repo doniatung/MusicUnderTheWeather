@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 import os, urllib2, json
-#from utils import database
+from utils import database
+import random
 
 
 app = Flask(__name__)
@@ -95,7 +96,13 @@ def result():
     temp = weatherGetter(zipp)
     songID = songGetter(temp)
     iD = ["https://www.youtube.com/embed/" + songID]
+    database.update_user_history(session[key][0], city, str(temp), iD, db_name)
     return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = " yo")
+
+@app.route('/user_history', methods= ['GET'])
+def user_history():
+    city, temp,iD = get_user_history(session[key][0], db_name)
+    return render_template("user_history.html")
 
 #in between routes (logout, authorize, etc.)
 

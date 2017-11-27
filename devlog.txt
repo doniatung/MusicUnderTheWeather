@@ -62,3 +62,6 @@ doniaT -- 21:30
 
 giorgioV -- 22:30
   -Finished all basic templates
+
+mashaZ -- 11/27 13:27
+  -fixed problem with login
