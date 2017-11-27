@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 import os, urllib2, json
-#from utils import database
+from utils import database
 
 
 app = Flask(__name__)
