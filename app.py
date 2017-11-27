@@ -56,6 +56,16 @@ def songGetter(temp):
     else:
         return over90[index]
 
+def titleGetter(id):
+    url = "https://www.googleapis.com/youtube/v3/videos?id=" + id + "&key=AIzaSyDXJKY4vKmS5WhwX4D3TWVA61NUSTE4Ihk&part=snippet,contentDetails,statistics,status"
+    print url
+    u = urllib2.urlopen(url)
+    data = u.read()
+    dic = json.loads(data)
+    dictionarylist = dic["items"]
+    dic2 =  dictionarylist[0]
+    return dic2['snippet']['title']
+
 #main routes
 
 #TODO: add session and authorizaion stuff
@@ -96,8 +106,9 @@ def result():
     temp = weatherGetter(zipp)
     songID = songGetter(temp)
     iD = ["https://www.youtube.com/embed/" + songID]
+    name = titleGetter(songID)
     database.update_user_history(session[key][0], city, str(temp), iD, db_name)
-    return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = " yo")
+    return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = name)
 
 @app.route('/user_history', methods= ['GET'])
 def user_history():
@@ -123,7 +134,7 @@ def check_new_account():
         flash('Passwords do not match, try again.')
         return redirect(url_for('register'))
     
-    if not database.check_account_not_exists(username, db_name):
+\    if not database.check_account_not_exists(username, db_name):
         flash('Account already exists')
         return redirect(url_for('register'))
     
