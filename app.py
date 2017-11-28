@@ -117,12 +117,12 @@ def result():
 
 @app.route('/user_history', methods= ['GET'])
 def user_history():
-    print(session[key])
+    #print(session[key])
     city, temp, iD = database.get_user_history(session[key], db_name)
     if city == None:
         flash('Sorry, you have not listened to any music yet. You do not have anything in your history')
         return redirect(url_for('home'))
-    return render_template("user_history.html", ct = city, temperature = temp, songID = iD)
+    return render_template("user_history.html", ct = city, temperature = temp, songID = [iD])
 
 #in between routes (logout, authorize, etc.)
 

@@ -19,7 +19,7 @@
       <div class="header clearfix">
       </div>
       <div class="jumbotron" style="background-color:beige;">
-      <center><h3>User Listening History<h3></center>
+      <center><h3>A Glipse of Your Listening History<h3></center>
       </div>
 
 
@@ -28,9 +28,10 @@
         <form method="get" action="/home"> <br>
           <input type="submit" value="Back"><br><br>
         </form>
-
-        <P> Your Listening History</p>
-
+        <h4> When it was {{temperature}} in {{ct}}, you listened to...</h4>
+	{% for song in songID %}
+	<iframe src={{song}}  width="640" height="480">
+	{% endfor %}
       </div>
 
     </div>
