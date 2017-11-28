@@ -102,14 +102,18 @@ def home():
 
 @app.route('/search_result', methods = ["GET", "POST"])
 def result():
-    zipp = request.form["zipcode"]
-    city = cityFinder(zipp)
-    temp = weatherGetter(zipp)
-    songID = songGetter(temp)
-    iD = ["https://www.youtube.com/embed/" + songID]
-    name = titleGetter(songID)
-    database.update_user_history(session[key], city, str(temp), iD[0], db_name)
-    return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = name)
+    try:
+        zipp = request.form["zipcode"]
+        city = cityFinder(zipp)
+        temp = weatherGetter(zipp)
+        songID = songGetter(temp)
+        iD = ["https://www.youtube.com/embed/" + songID]
+        name = titleGetter(songID)
+        database.update_user_history(session[key], city, str(temp), iD[0], db_name)
+        return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = name)
+    except:
+        flash('That is not a valid US zipcode. Please enter a valid zipcode')
+        return redirect(url_for('home'))
 
 @app.route('/user_history', methods= ['GET'])
 def user_history():

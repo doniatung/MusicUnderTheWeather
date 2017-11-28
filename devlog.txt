@@ -76,3 +76,6 @@ mashaZ -- 11/27 14:01
 mashaZ -- 11/27 20:58
   -Fixed problem with updating user_history
   -started work on getting view_history to work
+
+mashaZ -- 11/28 13:41
+  -Added flash messages
