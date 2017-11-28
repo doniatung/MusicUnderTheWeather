@@ -69,3 +69,10 @@ mashaZ -- 11/27 13:27
 doniaT -- 11/27 14:00
   -Got the title thing to work! 
   -added music to the lists
+
+mashaZ -- 11/27 14:01
+  -Worked on making user history work
+
+mashaZ -- 11/27 20:58
+  -Fixed problem with updating user_history
+  -started work on getting view_history to work

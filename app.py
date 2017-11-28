@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
-import os, urllib2, json
+#import urllib.request as urllib2
+import os, json, urllib2
 from utils import database
 import random
 
@@ -20,7 +21,7 @@ over90 = ["HCjNJDNzw8Y", "bncb3dm8K7g","yd8jh9QYfEs","CTFtOOh47oo", "HMqgVXSvwGo
 def cityFinder(zipcode):
     url = "http://api.wunderground.com/api/31c0e27929b4d46c/geolookup/q/" + zipcode + ".json"
     u = urllib2.urlopen(url)
-    data = u.read()
+    data = u.read()#.decode('utf-8')
     dic = json.loads(data)
     locationdic = dic["location"]
     city = locationdic["city"]
@@ -29,13 +30,13 @@ def cityFinder(zipcode):
 def weatherGetter(zipcode):
     url1 = "http://api.wunderground.com/api/31c0e27929b4d46c/geolookup/q/" + zipcode + ".json"
     u = urllib2.urlopen(url1)
-    data = u.read()
+    data = u.read()#.decode('utf-8')
     dic = json.loads(data)
     locationdic = dic["location"]
     addon = locationdic["requesturl"]
     url2 = "http://api.wunderground.com/api/31c0e27929b4d46c/conditions/q/" + addon + ".json"
     u2 = urllib2.urlopen(url2)
-    data2 = u2.read()
+    data2 = u2.read()#.decode('utf-8')
     dic2 = json.loads(data2)
     currentObsDic = dic2["current_observation"]
     temp = currentObsDic["temp_f"]
@@ -58,9 +59,9 @@ def songGetter(temp):
 
 def titleGetter(id):
     url = "https://www.googleapis.com/youtube/v3/videos?id=" + id + "&key=AIzaSyDXJKY4vKmS5WhwX4D3TWVA61NUSTE4Ihk&part=snippet,contentDetails,statistics,status"
-    print url
+    print (url)
     u = urllib2.urlopen(url)
-    data = u.read()
+    data = u.read()#.decode('utf-8')
     dic = json.loads(data)
     dictionarylist = dic["items"]
     dic2 =  dictionarylist[0]
@@ -107,12 +108,16 @@ def result():
     songID = songGetter(temp)
     iD = ["https://www.youtube.com/embed/" + songID]
     name = titleGetter(songID)
-    database.update_user_history(session[key][0], city, str(temp), iD, db_name)
+    database.update_user_history(session[key], city, str(temp), iD[0], db_name)
     return render_template("search_result.html", cT = city, temperature = temp, playlist = iD, title = name)
 
 @app.route('/user_history', methods= ['GET'])
 def user_history():
-    city, temp,iD = get_user_history(session[key][0], db_name)
+    print(session[key])
+    city, temp, iD = database.get_user_history(session[key], db_name)
+    if city == None:
+        flash('Sorry, you have not listened to any music yet. You do not have anything in your history')
+        return redirect(url_for('home'))
     return render_template("user_history.html", ct = city, temperature = temp, songID = iD)
 
 #in between routes (logout, authorize, etc.)
