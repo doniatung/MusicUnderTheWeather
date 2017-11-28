@@ -8,5 +8,5 @@ How to Run:
 - Enter your virtual environment 
 - "python app.py" and then copy/paste http://127.0.0.1:5000/ into your given browser
 - Create an account and login
-- Enter your zipcode (or any other zipcode if you really want to)
+- Enter your zipcode or any other zipcode if you really want to (!!NOTE!! Because of the way the API is set up, we can only access zip codes within the United States, so please make sure your zip code is within the US) 
 - Listen to some qual music (if you refresh, you'll probably get another song suggestion. I say probably because it's random, so there is a chance of a repeat, but if you refresh twice, then there's less of a chance you'd get the same song three times in a row)
