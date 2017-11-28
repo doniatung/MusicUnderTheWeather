@@ -102,6 +102,9 @@ def home():
 
 @app.route('/search_result', methods = ["GET", "POST"])
 def result():
+    if not(key in session):
+        flash('You are not logged in.')
+        return redirect(url_for('login'))
     try:
         zipp = request.form["zipcode"]
         city = cityFinder(zipp)
@@ -117,6 +120,9 @@ def result():
 
 @app.route('/user_history', methods= ['GET'])
 def user_history():
+    if not(key in session):
+        flash('You are not logged in.')
+        return redirect(url_for('login'))
     #print(session[key])
     city, temp, iD = database.get_user_history(session[key], db_name)
     if city == None:
