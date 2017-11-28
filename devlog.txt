@@ -82,3 +82,6 @@ mashaZ -- 11/28 13:41
 
 mashaZ -- 11/28 13:57
   -Makes sure that you are logged in to access home, user history, and search result
+  
+doniaT -- 11/28 14:00 
+  -jinja for the user history page
